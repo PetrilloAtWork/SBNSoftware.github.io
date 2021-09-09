@@ -463,6 +463,7 @@ It should be used judiciously (and sparsely).
   ```
   In this case `art::Event::getByLabel()` (which should be reasonably
   well known anyway) returns the type written in its template argument.
+* extremely long types for short-lived variables, e.g. `std::vector<std::vector<std::pair<int, int>>::const_iterator it = vec.begin()`
 * in lambda types, of course, `auto` is acceptable when no other option is available:
   ```cpp
   auto elem = [&data](std::size_t i){ return data[i]; };
