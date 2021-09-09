@@ -503,9 +503,9 @@ It should be used judiciously (and sparsely).
   [user-defined literal operators](https://en.cppreference.com/w/cpp/language/user_literal)
   (e.g. `using namespace std::string_literals`);
 
-**[F]** `using namespace` directives are nevertheless always thoroughly
+**[F]** `using` directives are nevertheless always thoroughly
   **forbidden** in global scope of header files.
-  Instead, importing specific symbols at local scope should be preferred
+  You may import specific symbols at local scope (i.e. within the body of your `class`) if absolutely necessary for readability
   (e.g. `using std::begin, std::end;`).
   
 **[E]** In header files, it is **encouraged** that functions and variables
