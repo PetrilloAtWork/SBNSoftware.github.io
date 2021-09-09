@@ -437,6 +437,8 @@ It should be used judiciously (and sparsely).
 
 **[D]** In general, the use of `auto` is **discouraged**
 
+TODO - agree, but we have quite a few dubious `auto`s in the examples in this very document. Let's practice what we preach
+
 **[S]** The `auto` keyword can be safely used when the underlying type is _obvious_
   from the code in the same line or the previous one.
   In doubt, spell the type out instead.
