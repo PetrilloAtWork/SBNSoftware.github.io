@@ -147,7 +147,7 @@ possible name collisions or ambiguities.
   `double const F = G * m * M / (d*d);` is acceptable, but 
   `double const F = G * m1 * m2 / (d*d);` should still be preferred.
  
-**[E]** Starting private data members with `f` and use CamelCase is **encouraged** (e.g. `double fTrackLength`). Agree, but can we spell this out more / ban starting non-members with `f`. Lots of people seem to be confused about this.
+**[E]** Names starting with `f` and using CamelCase (e.g. `double fTrackLength`) are **encouraged** for private data members, and only for them. Conversely, the use of a leading `f` for local variables is **discouraged**.
 
 
 Example:
