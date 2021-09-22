@@ -288,10 +288,16 @@ conditions over automatic mitigation.
   verifying; e.g. a function documented to require as argument a non-empty list
   of tracks may include as first line a `assert(!tracks.empty());`.
   
-**[E]** C++ exceptions are **encouraged** as tools for reporting error;
-  using `cet::exception` as base of exceptions where available is **encouraged**
-  as a recognizable pattern and because of the convenience of the class.
-  
+**[D]** C++ exceptions are **discouraged** as tools for reporting error.
+Exceptions must only be used for truly exceptional conditions, not regular control flow.
+Every exception thrown and re-caught in normal operations makes debugging an exception of interest via breakpoints much more difficult.
+`fhiclcpp unfortunately uses exceptions in some common cases`. This is an anti-pattern and makes debugging art code more difficult.
+The main value of exceptions is the case where a higher level of the program has more context to decide how to deal with a problem. This is mostly relevant for user interface design etc.
+In physics code, an unexpected condition is almost always unrecocoverable. It is usually better to abort the program immediately with a clear message. Do not use default calibrations if the calibration database can't be reached, do not skip analyzing an event because you were unable to find the hits, etc.
+In cases where it is determined that there is a safe way to continue, the response can usually be applied locally.
+Terminating a program with abort() rather than an uncaught exception is better because it is easier to catch in a debugger, guarantees the error message you printed will be the last thing on the screen, rather than something useless like "uncaught exception", and avoids any possibility of art misfeatures such as quietly skipping an event in the event of an exception to come into play.
+Remember that your code will most commonly run in a production environment on the grid, where no-one will ever read the logs unless the job actively fails.
+
 **[D]** "Catch-all" constructs (`catch (...)`) are **strongly discouraged** as they
   have repeatedly been found to hide essential errors.
   
