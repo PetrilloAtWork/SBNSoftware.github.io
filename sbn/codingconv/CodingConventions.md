@@ -133,10 +133,10 @@ even at the cost of some additional key strokes, and then to minimize
 possible name collisions or ambiguities.
 
 **[R]** Use of a descriptive control variable is **required**
-  in any loop longer than five lines.
+  in any loop longer than five lines, unless implementing a mathematical formula (matrix operations?) where i,j,k indices are traditional
   
 **[D]** Declaration of identifiers starting with an underscore is **discouraged**
-  (even to denote private class members); 
+  (even to denote private class members); TODO: how about in to name constructor arguments that alias class members? I guess Foo::Foo(int _x) : x(_x) {} in this case
   
 **[F]** declaration of identifiers starting
   with two or more underscores (e.g. `__i`) is **forbidden**.
@@ -147,7 +147,7 @@ possible name collisions or ambiguities.
   `double const F = G * m * M / (d*d);` is acceptable, but 
   `double const F = G * m1 * m2 / (d*d);` should still be preferred.
  
-**[E]** Starting private data members with `f` and use CamelCase is **encouraged** (e.g. `double fTrackLength`).
+**[E]** Names starting with `f` and using CamelCase (e.g. `double fTrackLength`) are **encouraged** for private data members, and only for them. Conversely, the use of a leading `f` for local variables is **discouraged**.
 
 
 Example:
