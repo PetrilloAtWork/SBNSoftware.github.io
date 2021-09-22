@@ -858,6 +858,8 @@ There are well known patterns that prevent unnecessary copies.
   This usually guarantees optimal performance even when
   the calling code pass a temporary vector
   (e.g. `HitProcessor hitProc { generateHits() };`).
+  
+  Agree about avoiding copies, but this is a very confusing area, especially with mandatory return value optimization etc. `std::move()` confuses the heck out of me, I'm not sure recommending it to novice users is necessarily wise. For example, why not pass initialHits as a reference above and then not move it?
 
 **[E]** Allocation of the memory for a data structure in advance is **encouraged** 
   if its _final_ size is known. For example:
