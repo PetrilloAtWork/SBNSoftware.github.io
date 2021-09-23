@@ -647,10 +647,10 @@ A similar recommendation still holds for code in implementation files
 
 ### C++ best practices
 
-**[F]** Pointer variables _never_ own their memory.
-  The use of `new` operator is **forbidden**.
+**[D]** The use of `new` operator is **discouraged**.
   Data arrays should be stored in collections like `std::vector`.
   Dynamic memory should be allocated via `std::make_unique()`.
+  Any use of `new` stored into a raw pointer must be accompanied by a justification, and explanation of the lifetime (`// deleted in destructor, this class is uncopyable` or `// single small instance throughout lifetime of program, deliberately leaked because XYZ`)
   In case of interface with external libraries which do not follow this rule
   and return a pointer owning memory, if that memory is requested to be freed
   with `delete`, immediately wrapping it into a `std::unique_ptr`
