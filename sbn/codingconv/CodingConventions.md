@@ -309,6 +309,7 @@ and as a recognition and acknowledgement.
   documentation of the function or class being modified with the same
   `@author` syntax as for the file header.
 
+Can we ban people from writing change logs into the top of their source files? This is a strangely popular misfeature. We have version control for this...
 
 ##  Error handling and message logging  ###################################
 
