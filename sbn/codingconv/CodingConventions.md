@@ -728,8 +728,6 @@ A similar recommendation still holds for code in implementation files
 
 **[D]** The use of `dynamic_cast` is **discouraged**, as there is usually a way to design
   interfaces without the need for this type of cast.
-  Plain C-style casts are also **discouraged** in favor of the more expressive
-  (and easier to recognise and understand) `static_cast`.
   
 **[F]** The use of labels and `goto` statement are **forbidden** except for the
   specific purpose of jumping out of deeply-nested loops
